@@ -26,6 +26,9 @@ import java.util.ArrayList;
 todo
 第一步应该做找到最多div块的content块
 把这个当成最终的node 传入找similar的算法
+
+todo2
+有一种可能的条件某个div下面的子div 有相似的数量
  */
 public class main {
 
@@ -36,7 +39,7 @@ public class main {
 //        String html = "<p>An <a href='http://example.com/'><b>example</b></a> link.</p>";
 //        Document doc = Jsoup.parse(html);
         //读取文件时的技巧，在intelj之中相对路径的开始是基于wenjingThesis这个路径的， 所以要以src开始
-        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/quora.html");
+        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
 
         Document doc = Jsoup.parse(rawTestData);
 
@@ -49,20 +52,38 @@ public class main {
 
 //        FindSimilarChildren(divSets);
 //        extractNode()
-       stringHelper(divSets.size()+"");
+//       stringHelper(divSets.size()+"");
         stringHelper("*************");
         int testCount = 0;
         int tenCount = 0 ;
+        Element biggest = divSets.first();
+        int biggestNumber = 0;
+
         for(Element divElment:divSets){
-            stringHelper(divElment.select("div").size()+"");
-            testCount+=divElment.select("div").size();
-            if(divElment.select("div").size()>50){
-                tenCount++;
+            if(divElment.select("div").size()>biggestNumber ){
+                biggest = divElment;
+                biggestNumber=divElment.select("div").size();
             }
         }
-        stringHelper("*************");
-        stringHelper(testCount+"");
-        stringHelper("tenCount"+tenCount+"");
+        stringHelper(biggest.toString());
+        stringHelper(biggest.select("div").size()+"");
+
+
+
+
+
+
+        //test part to get div size bigger than 50
+//        for(Element divElment:divSets){
+//            stringHelper(divElment.select("div").size()+"");
+//            testCount+=divElment.select("div").size();
+//            if(divElment.select("div").size()>50 ){
+//                tenCount++;
+//            }
+//        }
+//        stringHelper("*************");
+//        stringHelper(testCount+"");
+//        stringHelper("tenCount"+tenCount+"");
     }
     /*
     输入为div的elements sets 输出为把element 作为元素的arraylist,也就是有相似的子节点的结点的集合作为结果
