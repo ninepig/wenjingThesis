@@ -78,6 +78,7 @@ public class quoraMain {
             stringHelper("#################");
             stringHelper("no."+i);
             stringHelper("childrenSize"+resultElements.get(i).children().size()+"");
+            stringHelper("divSize"+resultElements.get(i).select("div").size()+"");
             stringHelper("#################");
             stringHelper("#################");
             stringHelper("#################");
