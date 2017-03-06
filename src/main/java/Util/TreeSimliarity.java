@@ -70,37 +70,8 @@ public class TreeSimliarity {
     核心算法1.0版， 只是比较当前目标节点下一层所有child 的tag的余弦相似度.
     如果是多层嵌套 div 则会有问题
      */
-//    private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
-//
-//
-//        StringBuffer TAGoneBuffer = new StringBuffer(),TAGtwoBuffer = new StringBuffer();
-//        for(Element firstChild:compareNode.children()){
-//            TAGoneBuffer.append(firstChild.tagName()+"");
-//        }
-//        for(Element secChild:compareNodeSecond.children()){
-//            TAGtwoBuffer.append(secChild.tagName()+"");
-//        }
-//        Cosine_Similarity cs1 = new Cosine_Similarity();
-//        double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
-//        if(sim_score>0.9){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//
-//    }
-    /*
-    核心算法2.0 在1.0的基础之上增加了必须node含有的children数量相似，含有的div相似
-     */
     private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
 
-
-        int containChildNodeA=0,containChildNodeB=0,containDivNumberA=0,containDivNumberB=0;
-
-        containChildNodeA = compareNode.childNodeSize();
-        containChildNodeB = compareNodeSecond.childNodeSize();
-        containDivNumberA = compareNode.select("div").size();
-        containDivNumberB = compareNodeSecond.select("div").size();
 
         StringBuffer TAGoneBuffer = new StringBuffer(),TAGtwoBuffer = new StringBuffer();
         for(Element firstChild:compareNode.children()){
@@ -111,13 +82,42 @@ public class TreeSimliarity {
         }
         Cosine_Similarity cs1 = new Cosine_Similarity();
         double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
-        if(sim_score>0.9&&containDivNumberA==containDivNumberB&&containChildNodeA==containChildNodeB){
+        if(sim_score>0.9){
             return true;
         }else {
             return false;
         }
 
     }
+    /*
+    核心算法2.0 在1.0的基础之上增加了必须node含有的children数量相似，含有的div相似
+     */
+//    private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
+//
+//
+//        int containChildNodeA=0,containChildNodeB=0,containDivNumberA=0,containDivNumberB=0;
+//
+//        containChildNodeA = compareNode.childNodeSize();
+//        containChildNodeB = compareNodeSecond.childNodeSize();
+//        containDivNumberA = compareNode.select("div").size();
+//        containDivNumberB = compareNodeSecond.select("div").size();
+//
+//        StringBuffer TAGoneBuffer = new StringBuffer(),TAGtwoBuffer = new StringBuffer();
+//        for(Element firstChild:compareNode.children()){
+//            TAGoneBuffer.append(firstChild.tagName()+"");
+//        }
+//        for(Element secChild:compareNodeSecond.children()){
+//            TAGtwoBuffer.append(secChild.tagName()+"");
+//        }
+//        Cosine_Similarity cs1 = new Cosine_Similarity();
+//        double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
+//        if(sim_score>0.9&&containDivNumberA==containDivNumberB&&containChildNodeA==containChildNodeB){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//
+//    }
 
 
     public Elements getResultElements() {

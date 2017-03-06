@@ -50,9 +50,10 @@ public class main {
 
 
 //        百度字符问题，gbk的问题，360 知乎 uclue 全部出来
-        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/baidu.html");
+//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/baidu.html");
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/360.html");
-//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
+        //todo 知乎用了第二种算法，但是会出现第一个child div数量多一个的情况
+        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/uclue.html");
         //评论和回答一起出来，分层了
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/stackoverFlow.html");
