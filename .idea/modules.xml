@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaLibrary/javaLibrary.iml" filepath="$PROJECT_DIR$/javaLibrary/javaLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/wenjingThesis.iml" filepath="$PROJECT_DIR$/wenjingThesis.iml" />
     </modules>
   </component>

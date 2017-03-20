@@ -2,6 +2,8 @@ package Enterance;
 
 import Util.Cosine_Similarity;
 import Util.TreeSimliarity;
+import cn.edu.hfut.dmic.contentextractor.ContentExtractor;
+import cn.edu.hfut.dmic.contentextractor.News;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -53,14 +55,15 @@ public class main {
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/baidu.html");
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/360.html");
         //todo 知乎用了第二种算法，但是会出现第一个child div数量多一个的情况，要考虑这种情况
-        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
+        //如果childsize 大于某一个值，且相等的情况下时候，就不考虑div数量
+//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/uclue.html");
         //评论和回答一起出来，分层了
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/stackoverFlow.html");
 
         //网页比较复杂。
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/yahoo.html");
-//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/quora.html");
+        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/quora.html");
 
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/uclue.html");
 
@@ -125,6 +128,33 @@ public class main {
 
         }
 
+        Element testExtract = resultElements.first();
+        String thisHtml = testExtract.toString();
+        Document currentHtmlDoc = Jsoup.parse(thisHtml);
+
+        try {
+            News orignalNews = ContentExtractor.getNewsByHtml(rawTestData);
+            News thisNews = ContentExtractor.getNewsByHtml(thisHtml);
+//            String content = ContentExtractor.getContentByHtml(thisHtml);
+            stringHelper("########");
+            stringHelper(thisHtml);
+//            System.out.println(thisNews.getTitle());
+            System.out.println("title:"+orignalNews.getTitle());
+             System.out.println("this answer time"+thisNews.getTime());
+             System.out.println("this para content:"+thisNews.getContent());
+
+            //get pic  url
+            //通用的方法是这个，但是有些网站混淆
+//            String url = image.absUrl("src");
+//            for (Element e : doc.select("img")) {
+//                System.out.println(e.attr("data-original"));
+//            }
+
+            stringHelper("########");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 //        stringHelper(biggest.toString());
