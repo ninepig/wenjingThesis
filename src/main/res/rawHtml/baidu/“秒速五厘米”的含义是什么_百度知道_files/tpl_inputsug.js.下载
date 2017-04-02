@@ -1,0 +1,555 @@
+/**
+ * 基础库，给模板用的
+ */
+(function(w,startTime,loaderror,lastmessage){
+
+    function mix(t,s){
+        if ( s ){
+            for(var p in s){
+                t[p] = s[p];
+            }
+        }
+        return t;
+    }
+
+    function Base(){}
+    Base.prototype = {
+        mix: mix,
+        throttle : function(fn, delay) {
+            var timer = null;
+            return function () {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    fn.apply(context, args);
+                }, delay);
+            };
+        },
+        pcurl: function(wd){
+
+            var url= this.getProtocol()+'//www.baidu.com/s?word='
+                        + encodeURIComponent(wd)+'&tn='
+                        + s_config.r_tn;
+
+            if( s_conf.fenlei ) {
+
+                url+= '&fenlei='+s_conf.fenlei;
+            }
+            return url;
+        },
+        substitute: function(str,obj){
+
+            return str.replace(/\{([^{}]+)\}/g, function(match, key) {
+                var value = obj[key];
+                return ( value !== undefined) ? ''+value :'';
+            });
+        },
+        //获取协议头
+        getProtocol: function(){
+            var userAgent = (navigator&&navigator.userAgent? navigator.userAgent:'');
+            if ( userAgent.match(/chrome|firefox|safari|msie 10|rsv:11|msie [89]/i) ) {
+                return 'https:'
+            }
+            return 'http:';
+        },
+        // 日志投放
+        log: function(data, u) {
+            
+            var i = window['_log_im'] = new Image;
+
+            i.onload = i.onerror = function(){
+                    i.onload= i.onerror = null;
+                    window['_log_im'] = i = null;
+                };
+            return i.src = this.getLog(data, u);
+            
+        },
+        // 生成日志
+        getLog: function(){
+
+            var config = mix(window.s_config||{},{
+                pid:201,
+                productline:'cun',
+                productsub:'cun',
+                pj:'ext_hl',
+                tab:'query',
+                logactionid:"0100100002",
+                mod:'cun'
+            }),index=0;
+            // 添加 一处性能统计参数，用来统计时间，以及在跨域中情况
+            try {
+                var href = location.href + "";
+                var ifr = href.match(/ifr=([^&]+)/);
+                var cuid = document.cookie.match(/cuid=([^;]+)/);
+                var time = href.match(/(?:\?|&)t=([0-9]+)/);
+
+                if (ifr) {
+                     config.ifr = ifr[1];
+                }
+                if (time){
+                    time = parseInt(time[1],10);
+                    config.renderTime = +new Date - time;
+                }
+                
+                if (cuid){
+                    config.cuid = cuid[1];
+                }
+            }catch(e){}
+
+
+            return function(data,u){
+                var d=[],
+                    l =mix(data,config);
+                if (window.logactionid){
+                    l.logactionid = window.logactionid;
+                }
+                //发生日志时间
+                l.r_time = +new Date;
+                l.r_ltime = l.r_time- startTime;
+                l.r_stime =startTime;
+                l.r_sp = window.r_sp || 'flowbar';
+                //焦点时间
+                if ( window.FOCUS_TIME ){
+                    l.r_fctime = l.r_time-window.FOCUS_TIME;
+                    l.r_index  = FOCUS_CLICK_INDEX++;
+                }
+                
+
+                try{
+                    l.r_innerWidth= jQueryDSPUI(window).width();//点击词的容器宽度
+                    l.r_innerHeight= jQueryDSPUI(window).height();//点击词的容器高度
+                }catch(e){}
+
+                for(var p in l){
+                    
+                    if (p.match(/(r_tn|r_from)/i) && typeof l[p]=='string'){
+                        l[p] = l[p].replace(/&.*/g,'');
+                    }
+                    d.push(p+'='+encodeURIComponent(l[p]));
+                }
+                var src = '';
+                if ( typeof u =='string'){
+                    src =  u+d.join('&');
+                }
+                src = (s_domain.logUrl || "http://dj0.baidu.com/v.gif")+"?"+d.join('&');
+                return src;
+            };
+        }()
+    }
+    w.DSPUIBase = new Base;
+    
+    window.onerror = function(e,u,l){
+        if (!location.href.match(/dspui_debug/)){
+            if ( !loaderror  || lastmessage != e) {
+                
+                try {   
+                    loaderror = true;//标记发送过错误日志
+                    lastmessage = e;
+                    DSPUIBase.log({
+                        fm:'tool',
+                        r_type: 'error',
+                        message: e, 
+                        l: l
+                    });
+                }catch(a){}
+
+                window.onerror = function(){return true;}
+            }
+            return true;
+        }
+    };
+
+    DSPUIBase.AntiUtil = function(selector){
+
+        this.selector = selector;
+        this.bind();
+    };
+
+    DSPUIBase.AntiUtil.prototype = {
+        hooks : "anti_hooks_dspui" + (+new Date),
+        cache: {},
+
+        uniq: function(){
+            var timesamp = + new Date;
+            return function(){
+                return timesamp ++;
+            }
+        }(),
+        bind: function(){
+            var self = this,
+                $document = jQueryDSPUI(document);
+
+            $document.on('mouseover'
+                    , self.selector, function(e){
+
+                var target = jQueryDSPUI(this),
+                    id = target.attr(self.hooks);
+
+                id || target.attr(self.hooks, id = self.uniq());
+
+                self.over(id,target,e);
+
+            }).on('mousedown', self.selector,  function(e){
+                var target = jQueryDSPUI(this),
+                    id = target.attr(self.hooks);
+                
+                self.down(id, target, e);
+            }).on('mouseup', self.selector, function(e){
+                var target = jQueryDSPUI(this),
+                    id = target.attr(self.hooks);
+
+                self.up(id, target, e);
+            });
+        },
+
+        over: function(id, target, event){
+            var offset = target.offset();
+            
+            this.setCache(id, {
+                mouseoverInX: event.pageX - offset.left,
+                mouseoverInY: event.pageY - offset.top
+            })
+        },
+        down: function(id, target, event){
+            var offset = target.offset(),
+                nodeName = (target[0].nodeName || "").substr(0,1);
+
+            this.setCache(id, {
+                startTime: +new Date,
+                mosuedownInX: event.pageX - offset.left,
+                mosuedownInY: event.pageY - offset.top,
+                nodeName: nodeName,
+                width: target.width(),
+                height: target.height()
+            })
+        },
+        up: function(id, target, event){
+            this.setCache(id, {
+                endTime: +new Date
+            });
+        },
+        setCache: function(id, cac){
+            var cache = this.cache;
+
+            if (!cache[id]) {
+
+                cache[id] = {
+                    nodeName: 'C',
+                    startTime: 0,
+                    endTime: 0,
+                    mouseoverInX: 0,
+                    mouseoverInY: 0,
+                    mosuedownInX: 0,
+                    mosuedownInY: 0,
+                    width:0,
+                    height:0
+                };
+            }
+
+            for (var p in cac) {
+                cache[id][p] = cac[p];
+            }
+        },
+        getCache: function(id){
+            return this.cache[id] || {};
+        },
+        getAnti: function(target){
+            var id = target.attr(this.hooks),
+                cache = this.getCache(id),
+                s = [];
+            
+            s.push(cache.nodeName, cache.endTime - cache.startTime
+                , cache.mouseoverInX, cache.mouseoverInY
+                , cache.mosuedownInX, cache.mosuedownInY
+                , cache.width, cache.height);
+
+            return s.join('.');
+        }
+    };
+
+})(this,+new Date);
+
+(function($){
+
+    window.r_sp = window.r_sp ||'searchbar';
+    window.ADFOR = function(){
+        var body = document.body,
+            doce = document.documentElement;
+            
+        return {
+            page: 1,
+            effect: 'show',
+            //展现日志
+            loadlog: function(type){
+
+                DSPUIBase.log({
+                    fm: 'load',
+                    r_type : type
+                    
+                })
+            },
+            //渲染模板
+            render: function(){
+                var html = [],
+                    item,i=0;
+
+                if ( ADS.length > 0 ){
+
+                    while( item = ADS[i++] ){
+                        if ( s_conf.useMobileURI ){
+                            item.link = DSPUIBase.getProtocol()+'//m.baidu.com/s?from='
+                                +s_config.r_from
+                                +'&word='+encodeURIComponent(item.title);
+                        } else {
+                            item.link = DSPUIBase.getProtocol()+'//www.baidu.com/s?wd='
+                                    + encodeURIComponent(item.title)+'&tn='
+                                    + s_config.r_tn;
+                            
+                        }
+                        if ( s_conf.fenlei ){
+                            item.link+='&fenlei='+ s_conf.fenlei;
+                        }
+
+                        html.push('<a href="'+item.link+'" data-type="text"  data-hidehit="'+item.hidehit+'" data-recommtype="');
+                        html.push(item.recommtype + '" title="' + item.title + '" data-title="' + item.title + '"');
+                        html.push(' style="');
+
+                        if  (item.style) {
+                            html.push(item.style);
+                        }
+
+                        html.push('" data-rpkey="' + item.rpkey + '" target="_blank"><span>' + item.title + '</span>');
+
+                        if (item.displayType === '1') {
+                            html.push(' <span class="new">\u65b0</span>');
+                        }
+
+                        if (item.displayType === '9') {
+                            html.push('<span style="color:red">[\u70ed]</span>');
+                        }
+                        html.push('</a>   ');
+                    }
+
+                    //使用原生的代码
+                    document.getElementById('wrap').innerHTML = html.join('');
+
+                    try {
+                        this.loadlog('load');
+                        this.wrap = $('#wrap');
+                        this.bind();
+
+                    } catch(e){this.error('bind',e.message);}
+                } else {
+
+                    this.error('ads');
+                }
+                
+                
+                //修正每行词的位置
+                if ( STYLE.align=='center' && !!STYLE.bgcolor ){
+                    this.fixed();
+                }
+            },
+            fixed: function(){
+
+                var lines = this.words(true),idx=-1,line,target,w,
+                    pr = parseFloat(STYLE.pr),
+                    pl = parseFloat(STYLE.pl,10),
+                    mr = parseFloat(STYLE.mr,10),
+                    space = pr+pl+mr,
+                    width = parseInt(STYLE.width,10)+mr;
+                
+                while( line = lines[++idx] ){
+                    var first = line[0],
+                        nowwidth=0;
+                    for( var i=0,l=line.length;i<l;i++ ){
+                    
+                        nowwidth+= line[i].width+mr;
+                    }
+                    var free = width - nowwidth,
+                        step =free/ line.length;
+
+                    
+                    if ( free>0 ){
+                        for(var i=0,l=line.length;i<l;i++){
+                            target = line[i].target;
+                    
+                            target.css('width',line[i].width-pr-pl+step)
+                        }
+                    }
+                }
+
+            },
+            bind: function(){
+                var self = this;
+                //点击事件处理
+                $(document).on('click','a,.event',function(e){
+                    var target = $(this),
+                        type = target.attr('data-type'),
+                        recommtype = target.attr('data-recommtype');
+
+                    //点击日志
+                    DSPUIBase.log(self.logdata(target,{
+                        r_type: type
+                    },e));
+
+                    switch(type){
+                        case 'text':
+                            target.find('i').remove();//去掉新
+                            //点击后消失
+                            //if (recommtype == '109' || recommtype== '112'){
+                                //向后端发送点击，不关心返回
+                                window['_imgsss'] = new Image;
+                                window['_imgsss'].src = s_domain.clickDomain+'rp/click?word='+encodeURIComponent(target.attr('data-title'));
+                            //}
+                            break;
+                        case 'switch':
+                            if (!self.switching){
+                                self.switching = true;
+                                self.addswitch(target);
+                                return self.switched(),false;
+                            }
+                            break;
+                    }   
+                });
+
+
+                //自动播放
+                if ( STYLE.lbTimer ) {
+                    var timer = parseInt(STYLE.lbTimer);
+                    if ( timer ) {
+
+                        setInterval(function(){
+                            if ( !self.stoped ) {
+                                self .switching = true;
+                                self.switched();
+                            }
+                        },Math.min(5000,timer));
+
+                        //自动轮播暂停
+                        $(document.body).on('mouseenter mouseleave',function(e){
+                            self.stoped = e.type =='mouseenter';
+                        });
+
+                    }
+                }
+            },
+            //获取word
+            words: function(getline){
+                var wrap = this.wrap,
+                    whei = $(window).height(),
+                    word = [],top=-10,items=[];
+                this.lines=[];
+
+                wrap.find('a').each(function(){
+                    var that = $(this),
+                        offset = that.offset(),
+                        ot = parseInt(offset.top /10,10);
+                    
+                    if ( ot!=top ){
+                        
+                        if (items.length){
+                            ADFOR.lines.push(items);
+                        }
+                        items = [];
+                        top = ot;
+                    }
+                    items.push({
+                        target: that,
+                        width:that[0].offsetWidth
+                    });
+
+                    if ( !getline ) {
+                        if ( ADFOR.effect =='show') {
+                            if (that.css('display')!=='none'){
+                                if (offset.top < 12){
+                                    word.push(that);
+                                }
+                            }
+                        } else {
+                            if (offset.top< whei){
+                                word.push(that);
+                            }
+                        }
+                    }
+                });
+
+                if ( items.length ){
+                    this.lines.push(items);
+                }
+    
+                return getline ? this.lines :word;
+            },
+            addswitch: function(target){
+                var il= target.find('i'),self= this;
+                    il.removeClass('rotate').addClass('rotate');
+                
+                setTimeout(function(){
+                    il.removeClass('rotate');
+                },500)
+            },
+            //换一换功能
+            switched: function(){
+                
+                var words = this.words(),
+                    wrap = this.wrap,self = this,
+                    ws = wrap.find('a');
+
+                if ( ADFOR.effect =='show' ) {
+                    ws.hide();
+                    for( var i=0,l=words.length;i<l;i++ ){
+                        wrap.append(words[i].remove());
+                        wrap.append(' ');
+                    }
+                    ws.show();
+                    self.switching = false;
+                } else {
+
+                    wrap.animate({marginTop:-$(window).height()},$(window).height()*3.67,function(){
+                        wrap.css('marginTop',0)
+                        for(var i=0,l=words.length;i<l;i++){
+                            wrap.append(words[i]);
+                        }
+                    })
+
+                }
+
+                this.page++;
+            },
+            error: function(type,message){
+                DSPUIBase.log({
+                    fm: 'tool',
+                    r_type : type+'_error',
+                    e: message || ''
+                })
+            },
+            logdata: function(target,data,event){
+                var offset = target.offset(),
+                    windo  = $(window),
+                    position = target.position();
+                    
+                return {
+                    fm:data.fm||'click',
+                    r_page: data.r_page||ADFOR.page,
+                    //广告的位置
+                    r_rank: target.index(),//广告的位置
+                    r_offsetX: Math.floor(offset.left),//点击词相对与广告框的left位置
+                    r_offsetY: Math.floor(offset.top),//点击词相对与广告框的top位置
+                    r_postionX: Math.floor(position.left),//点击词相对与外层容器的left位置
+                    r_positionY: Math.floor(position.top),//点击词相对与外层容器的left位置
+                    r_pageX: Math.floor(event ? event.pageX:0),//点击词所在的鼠标点击点相对于文档的left位置
+                    r_pageY: Math.floor(event? event.pageY:0),//点击词所在的鼠标点击点相对于文档的top位置
+                    r_width: target.width(),//点击词的相对宽度
+                    r_height: target.height(),//点击词的相对高度
+                    r_type: data.r_type,
+                    r_wd: target.attr('data-title')||'',
+                    r_key : target.attr('data-rpkey')||'',
+                    r_hidehit : target.attr('data-hidehit')||'',
+                    r_recommtype: target.attr('data-recommtype')||''
+                }
+            }
+
+        }
+    }();
+
+})(jQueryDSPUI);

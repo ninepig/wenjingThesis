@@ -56,14 +56,14 @@ public class main {
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/360.html");
         //todo 知乎用了第二种算法，但是会出现第一个child div数量多一个的情况，要考虑这种情况
         //如果childsize 大于某一个值，且相等的情况下时候，就不考虑div数量
-//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu.html");
+//        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/quora/1.html");
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/uclue.html");
         //评论和回答一起出来，分层了
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/stackoverFlow.html");
 
         //网页比较复杂。
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/yahoo.html");
-        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/quora.html");
+        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/zhihu/3.html");
 
 //        String rawTestData = readHtmlFromFile("src/main/res/rawHtml/uclue.html");
 
@@ -110,10 +110,7 @@ public class main {
 
 
 
-//        for(Element testResult:resultElements){
-//
-//
-//        }
+
         for(int i = 0 ;i<resultElements.size();i++){
             stringHelper(resultElements.get(i).toString());
             stringHelper("#################");
@@ -135,13 +132,13 @@ public class main {
         try {
             News orignalNews = ContentExtractor.getNewsByHtml(rawTestData);
             News thisNews = ContentExtractor.getNewsByHtml(thisHtml);
-//            String content = ContentExtractor.getContentByHtml(thisHtml);
+            String content = ContentExtractor.getContentByHtml(thisHtml);
             stringHelper("########");
-            stringHelper(thisHtml);
+            stringHelper(content);
 //            System.out.println(thisNews.getTitle());
             System.out.println("title:"+orignalNews.getTitle());
-             System.out.println("this answer time"+thisNews.getTime());
-             System.out.println("this para content:"+thisNews.getContent());
+//             System.out.println("this answer time"+thisNews.getTime());
+//             System.out.println("this para content:"+thisNews.getContent());
 
             //get pic  url
             //通用的方法是这个，但是有些网站混淆

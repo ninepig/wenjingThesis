@@ -1,0 +1,2523 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>mysql - Alternative to BigQuery for medium-sized data - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Alternative to BigQuery for medium-sized data">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="This is a follow-up to the question Why doesn&amp;#39;t BigQuery perform as well on small data sets. 
+
+Let&#39;s suppose I have a data-set that is ~1M rows. In the current database that we&#39;re using (mysql) ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data">
+    <link rel="canonical" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data">
+
+    
+    
+    <script type="text/javascript" async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/ados"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/quant.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/beacon.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/analytics.js.下载"></script><script type="text/javascript" async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/ados.js.下载"></script><script src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/jquery.min.js.下载"></script>
+    <script src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/stub.en.js.下载"></script>
+    <link rel="stylesheet" type="text/css" href="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Alternative to BigQuery for medium-sized data&#39;" href="http://stackoverflow.com/feeds/question/42729526">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:10,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:42729526});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '42729526');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1490540536,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"http"},"user":{"fkey":"f8d5511672d0568eb1b54e4b54c273aa","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"question_show_tweaks":{"v":"altern_unansw_cta","g":1},"simplified_signup_form":{"v":"messaging_b","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"0b7fc4bda0c5","js/moderator.en.js":"cbd9a328c047","js/full-anon.en.js":"a7f0b002a111","js/full.en.js":"f5a0869a3a0c","js/wmd.en.js":"4cb337bd5867","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"617589bf91c4","js/help.en.js":"118cb359bcc6","js/tageditor.en.js":"29bb7d9d2ed6","js/tageditornew.en.js":"347981f02b0e","js/inline-tag-editing.en.js":"2ddfa79492e7","js/revisions.en.js":"47de10a8358f","js/review.en.js":"2ede048f4028","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"ff664927f0f8","js/explore-qlist.en.js":"88f824a42b1a","js/events.en.js":"b7f64efad4b1","js/keyboard-shortcuts.en.js":"0fecfb11a105","js/external-editor.en.js":"71095ef40e9d","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"71095ef40e9d","js/snippet-javascript.en.js":"caa7fcc33c68","js/snippet-javascript-codemirror.en.js":"b5bb36c3f29d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/full-anon.en.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/snippet-javascript.en.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/post-validation.en.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/prettify-full.en.js.下载"></script><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/external-editor.en.js.下载"></script><script type="text/javascript" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/adFeedback.js.下载"></script><link rel="stylesheet" href="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/adFeedback.css"><link rel="stylesheet" href="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/jobs-multi.min.css" type="text/css"></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="http://stackoverflow.com/" class="-logo ">
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="http://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+            <form id="search" action="http://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                <input name="q" type="text" placeholder="Search..." value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                <button type="submit" class="btn js-search-submit">
+                    <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                </button>
+            </form>
+
+        </div>
+        
+
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f42729526%2falternative-to-bigquery-for-medium-sized-data" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+            
+    <li class="-item"><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" class="-link js-help-button" title="Help Center and other resources">
+        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M9 0a9 9 0 1 0 .001 18.001A9 9 0 0 0 9 0zm.812 13.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg viewBox="0 0 18 19" width="18" height="19" role="icon"><path fill-rule="evenodd" d="M0 14a2 2 0 0 0 2 2h10v3l3-3h1a2 2 0 0 0 2-2v-2H0v2zM16 0H2a2 2 0 0 0-2 2v2h18V2a2 2 0 0 0-2-2zM0 6h18v4H0V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                    <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f42729526%2falternative-to-bigquery-for-medium-sized-data" class="login-link btn-clear" rel="nofollow">Log In</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+<div class="hero-box survey-announcement">
+    <div class="hero-close js-dismiss">Dismiss</div>
+    
+    <div class="hero-content">
+        <div class="text-wrapper">
+            <div class="hero-title">
+                Insights on the world's developers
+            </div>
+            <p class="subtitle">
+                Demographics. Technologies. Salaries. Career satisfaction.
+            </p>
+        </div>
+        <a href="http://stackoverflow.com/insights/survey/2017/?utm_source=so-owned&amp;utm_medium=hero&amp;utm_campaign=dev-survey-2017&amp;utm_content=hero-ind-ques" class="btn btn-outlined js-gps-track" data-gps-track="survey.hero.clicked({ location: 2, year: 1 })" *@="">
+            2017 Developer Survey Results
+        </a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function() {
+        $('.survey-announcement .js-dismiss').one('click', function() {
+            $('.survey-announcement').fadeOut('fast');
+            $.cookie('survey_hero', 'x', { path: "/", expires: 60 });
+        });
+    });
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data" class="question-hyperlink">Alternative to BigQuery for medium-sized data</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="http://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="42729526" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1607311206",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1607311206"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MjAwODMzLCJhdCI6NCwiYnQiOjAsImNtIjo1NTEwNzIsImNoIjoxMTc4LCJjayI6e30sImNyIjoyMTc4NDkzLCJkaSI6IjZkNWQyOGIzYzVkNzQxMzZiNzExZTE4MDdkZjVjZjRmIiwiZG0iOjEsImZjIjoyNjcxMTMwLCJmbCI6Mjk2MjYwNSwiaXAiOiI3My4xMTkuMTc3LjIzNCIsImt3IjoibXlzcWwsc3FsLGdvb2dsZS1iaWdxdWVyeSxhbWF6b24tcmVkc2hpZnQiLCJtayI6InNxbCIsIm53IjoyMiwicGMiOjYuNiwiZWMiOjYuNiwicHIiOjc2NSwicnQiOjIsInJmIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tLz90YWI9bW9udGgiLCJzdCI6ODI3NywidWsiOiJ1ZTEtZjc4NjRiMWVjMmM4NGM0N2IxYzhkZjdmN2EyMGQ0MzYiLCJ6biI6NDMsInRzIjoxNDkwNTQwNTM2NTUyLCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxNjA3MzExMjA2IiwidXIiOiJodHRwczovL2FkLmF0ZG10LmNvbS9jL2dvO3A9MTEwODcyMTI5OTUzMTI7ZXYuYT0xO2lkZmE9O2FhaWQ9O2lkZmFfbGF0PTthYWlkX2xhdD07Y2FjaGU9P3d0Lm1jX2lkPWR4Xzg3OTIwMyJ9&amp;s=IukGMXXrnxyS9f_IZIVslgp_KBI" rel="nofollow" target="_blank" title=""><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/42558794e2ce4c9aa1c53971144a6d52.PNG" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42729526">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">19</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#">favorite</a>
+        <div class="favoritecount"><b></b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>This is a follow-up to the question <a href="http://stackoverflow.com/questions/42429093/why-doesnt-bigquery-perform-as-well-on-small-data-sets">Why doesn't BigQuery perform as well on small data sets</a>. </p>
+
+<p>Let's suppose I have a data-set that is ~1M rows. In the current database that we're using (mysql) aggregation queries would run quite slow, perhaps taking ~10s or so on complex aggregations. On BigQuery, the initialization time required might make this query take ~3 seconds, better than in mysql, but the wrong tool for the job, if we need to return queries in 1s or under.</p>
+
+<p>My question then is, what would be a good alternative to using BigQuery on doing aggregated queries on moderate-sized data-sets, such as 1-10M rows? An example query might be:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">SELECT</span><span class="pln"> studio</span><span class="pun">,</span><span class="pln"> territory</span><span class="pun">,</span><span class="pln"> count</span><span class="pun">(*)</span><span class="pln">
+</span><span class="kwd">FROM</span><span class="pln"> mytable
+</span><span class="kwd">GROUP</span><span class="pln"> </span><span class="kwd">BY</span><span class="pln"> studio</span><span class="pun">,</span><span class="pln"> territory
+</span><span class="kwd">ORDER</span><span class="pln"> </span><span class="kwd">BY</span><span class="pln"> count</span><span class="pun">(*)</span><span class="pln"> </span><span class="kwd">DESC</span></code></pre>
+
+<p>Possible solutions I've thought of are ElasticSearch (<a href="https://github.com/NLPchina/elasticsearch-sql" rel="noreferrer">https://github.com/NLPchina/elasticsearch-sql</a>) and Redshift (postgres is too slow). What would be a good option here that can be queried via SQL?</p>
+
+<p>Note: I'm not looking for <em>why</em> or <em>how</em> BQ should be used, I'm looking for an alternative for data sets under 10M rows where the query can be returned in under ~1s.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/mysql" class="post-tag js-gps-track" title="show questions tagged &#39;mysql&#39;" rel="tag">mysql</a> <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag js-gps-track" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/google-bigquery" class="post-tag js-gps-track" title="show questions tagged &#39;google-bigquery&#39;" rel="tag"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/2NOCA.png" height="16" width="18" alt="" class="sponsor-tag-img">google-bigquery</a> <a href="http://stackoverflow.com/questions/tagged/amazon-redshift" class="post-tag js-gps-track" title="show questions tagged &#39;amazon-redshift&#39;" rel="tag">amazon-redshift</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/42729526" title="short permalink to this question" class="short-link" id="link-post-42729526">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42729526/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/42729526/revisions" title="show all edits to this post">edited <span title="2017-03-14 23:25:38Z" class="relativetime">Mar 14 at 23:25</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2017-03-10 23:39:55Z" class="relativetime">Mar 10 at 23:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/651174/david542"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/2e2d79b9350ef4ebf04ac0ad5816a5c3" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/651174/david542">David542</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 22,173" dir="ltr">22.2k</span><span title="61 gold badges"><span class="badge1"></span><span class="badgecount">61</span></span><span title="171 silver badges"><span class="badge2"></span><span class="badgecount">171</span></span><span title="327 bronze badges"><span class="badge3"></span><span class="badgecount">327</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42729526" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="5" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72647106" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@David542 OLAP systems like Redshift and Bigquery are not built with emphasis on fast query processing, multiple second or even minute queries are common for these systems. With the amount of data you are mentioning, you should be able to achieve it on something like Redshift but I'm nut sure how consistent this latency will be. Maybe you should consider a different architecture, like putting a cache where the results of your analytical queries will be served from and then schedule to run your queries periodically to update your cache.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3568560/cpard" title="188 reputation" class="comment-user">cpard</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72647106_42729526"><span title="2017-03-13 14:23:43Z" class="relativetime-clean">Mar 13 at 14:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72840237" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@cpard agreed, in our tests with Redshift at 'small' data-sizes it consistently performed worse, and sometimes ad-hoc queries would take over 20s on its first execution, see <a href="http://docs.aws.amazon.com/redshift/latest/dg/c-query-performance.html" rel="nofollow noreferrer">docs.aws.amazon.com/redshift/latest/dg/c-query-performance.h‌​tml</a>.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72840237_42729526"><span title="2017-03-17 20:58:56Z" class="relativetime-clean">Mar 17 at 20:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72890946" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@cpard, right we're doing benchmarks x3, so the first time will be longer but then next two have the compiled query. Anyways, this would be a killer for our project, as mostly all the queries are ad-hoc, and we can't have the disclaimer, "Don't worry -- your query will take 20s, but run it a second time and it'll be faster!"</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72890946_42729526"><span title="2017-03-20 02:44:29Z" class="relativetime-clean">Mar 20 at 2:44</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72916488" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@David542 if you don't mind using a query language that is not SQL, then it might be better to work with Elastic Search, with such requirements. Especially if you plan to have multiple concurrent users running queries. Are you aware of the concurrent query limitations that Redshift has? <a href="http://docs.aws.amazon.com/redshift/latest/dg/cm-c-implementing-workload-management.html" rel="nofollow noreferrer">docs.aws.amazon.com/redshift/latest/dg/…</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3568560/cpard" title="188 reputation" class="comment-user">cpard</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72916488_42729526"><span title="2017-03-20 16:10:42Z" class="relativetime-clean">Mar 20 at 16:10</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72918839" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@David542 I added an answer with a few alternatives that I've <i>actually</i> used personally. I'm a little surprised at your Redshift experience. What type of nodes and table structures were you using? We often see subsecond queries on our SSD nodes regardless of whether query has been seen before.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/139490/joe-harris" title="3,775 reputation" class="comment-user">Joe Harris</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72918839_42729526"><span title="2017-03-20 17:12:03Z" class="relativetime-clean">Mar 20 at 17:12</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42729526" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick="">show <b>5</b> more comments</a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								10 Answers
+                                <span style="display:none;" itemprop="answerCount">10</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="42909730"></a>
+<div id="answer-42909730" class="answer accepted-answer" data-answerid="42909730" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42909730">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+<div class="bounty-award-container"><span class="bounty-award" title="This answer has been awarded bounties worth 200 reputation by David542">+200</span></div>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Here are a few alternatives to consider for data of this size:</p>
+
+<ol>
+<li>Single Redshift small SSD node
+
+<ul>
+<li>No setup. Easily returns answers on this much data in under 1s.&nbsp;</li>
+</ul></li>
+<li>Greenplum on a small T2 instance
+
+<ul>
+<li>Postgres-like. Similar perf to Redshift. Not paying for storage you won't need. Start with their single node "sandbox" AMI.</li>
+</ul></li>
+<li>MariaDB Columnstore
+
+<ul>
+<li>MySQL-like. Used to be called InfiniDB. Very good performance. Supported by MariaDB (the company).</li>
+</ul></li>
+<li>Apache Drill
+
+<ul>
+<li>Drill has a very similar philosophy to BiqQuery but can be used to anywhere (it's just a jar). Queries will be fast on this size data.</li>
+</ul></li>
+</ol>
+
+<p>If low admin / quick start is critical go with Redshift. 
+If money / flexibility is critical start with Drill. 
+If you prefer MySQL start with MariaDB Columnstore.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42909730" title="short permalink to this answer" class="short-link" id="link-post-42909730">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42909730/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/42909730/revisions" title="show all edits to this post">edited <span title="2017-03-20 17:13:37Z" class="relativetime">Mar 20 at 17:13</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-03-20 17:07:52Z" class="relativetime">Mar 20 at 17:07</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/139490/joe-harris"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/f3f808947f68fe8dd3e6662ec1e1e4bf" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/139490/joe-harris">Joe Harris</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,775</span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="29 bronze badges"><span class="badge3"></span><span class="badgecount">29</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42909730" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72926051" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thanks for these suggestions. We tried Drill and it worked pretty well, but in benchmarks Impala performed better/faster than Drill. Redshift also not an option due to their hard concurrency limitations (as noted in one of the question comments) -- <a href="http://docs.aws.amazon.com/redshift/latest/dg/cm-c-implementing-workload-management.html" rel="nofollow noreferrer">docs.aws.amazon.com/redshift/latest/dg/…</a>. Will check out Greenplum and MariaDB.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72926051_42909730"><span title="2017-03-20 20:33:59Z" class="relativetime-clean">Mar 20 at 20:33</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72926435" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Impala, hmm. 🤔 If you're willing to get into that <i>kind</i> of tool then definitely look at Spark - Good SQL support and your data will easily fit in memory. Also look into Clickhouse. <a href="http://tech.marksblogg.com/billion-nyc-taxi-clickhouse.html" rel="nofollow noreferrer">tech.marksblogg.com/billion-nyc-taxi-clickhouse.html</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/139490/joe-harris" title="3,775 reputation" class="comment-user">Joe Harris</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72926435_42909730"><span title="2017-03-20 20:45:15Z" class="relativetime-clean">Mar 20 at 20:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72926683" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">yes, we also tested Spark and Clickhouse. Impala performed better than Spark, and Clickhouse had a few limitations that made it unsuitable for our project (There is no efficient engine that accepts no params without knowing data nature beforehand -- <a href="https://clickhouse.yandex/reference_en.html#Table" rel="nofollow noreferrer">clickhouse.yandex/reference_en.html#Table</a> engines). Will let you know how Greenplum or MariaDB works.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72926683_42909730"><span title="2017-03-20 20:53:23Z" class="relativetime-clean">Mar 20 at 20:53</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72929878" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">here is an actual query that we use in our application, which on a dataset of 1000 rows that we're using for initial loading/testing, took 16s on the first query, then about 600ms on all additional queries:</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72929878_42909730"><span title="2017-03-20 22:52:07Z" class="relativetime-clean">Mar 20 at 22:52</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72972060" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Hmm, I'm not really grokking what that query is trying to do. I would say though that <code>COUNT(DISTINCT</code> is usually a performance killer on an MPP DB.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/139490/joe-harris" title="3,775 reputation" class="comment-user">Joe Harris</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72972060_42909730"><span title="2017-03-21 20:30:21Z" class="relativetime-clean">Mar 21 at 20:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42909730" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1421725795",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1421725795"><iframe id="ados_frame_adzerk1421725795_2711581" frameborder="0" scrolling="no" height="90" width="728" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/saved_resource.html"></iframe><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/i(1).gif"></div>
+  
+<a name="42800529"></a>
+<div id="answer-42800529" class="answer" data-answerid="42800529" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42800529">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">11</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you need answers in less than a second, you need to think about indexing. </p>
+
+<p>Typical story:</p>
+
+<ol>
+<li>MySQL (or any other database proposed here) is fast, until...</li>
+<li>One day some of your aggregation queries start running slow. Minutes, hours, days, etc.</li>
+<li>Typical solution for step 2 is indexing and pre-aggregating. If you want answers in less than a second for certain type of questions, you'll need to invest time and optimization cycles to answer just that type of questions.</li>
+<li>BigQuery's beauty is that you can skip step 3. Bring those minutes/hours/days to seconds, with minimal investment - any query, at any time. </li>
+</ol>
+
+<p>BigQuery is awesome because it gives you 4. But you are asking for 3, MySQL is fine for that, Elasticsearch is fine too, any indexed database will bring you results in less than a second - as long as you invest time on optimizing your system for certain type of question. Then to get answers for any arbitrary question without investing any optimization time, use BigQuery.</p>
+
+<p>BigQuery: Will answer arbitrary questions in seconds, no preparation needed.</p>
+
+<p>MySQL and alternatives: Will answer certain type of questions in less than a second, but it will take development time to get there.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42800529" title="short permalink to this answer" class="short-link" id="link-post-42800529">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42800529/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/42800529/revisions" title="show all edits to this post">edited <span title="2017-03-15 05:30:16Z" class="relativetime">Mar 15 at 5:30</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-03-15 03:19:24Z" class="relativetime">Mar 15 at 3:19</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/132438/felipe-hoffa"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/QJxe1.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/132438/felipe-hoffa">Felipe Hoffa</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 12,967" dir="ltr">13k</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="33 silver badges"><span class="badge2"></span><span class="badgecount">33</span></span><span title="70 bronze badges"><span class="badge3"></span><span class="badgecount">70</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42800529" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-73016185" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thanks for this. Out of curiosity, what do Google do for when they need to get sub-second responses on aggregated data sets, such as for Google Analytics? I would assume they aren't using BigQuery or an equivalent for that (and probably not mysql or a traditional oltp system)?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment73016185_42800529"><span title="2017-03-22 19:29:33Z" class="relativetime-clean">Mar 22 at 19:29</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-73021506" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Has Google Analytics ever presented its charts in less than a second? (That's a hint)</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/132438/felipe-hoffa" title="12,967 reputation" class="comment-user">Felipe Hoffa</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment73021506_42800529"><span title="2017-03-22 22:22:34Z" class="relativetime-clean">Mar 22 at 22:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42800529" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42800577"></a>
+<div id="answer-42800577" class="answer" data-answerid="42800577" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42800577">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I know SQL Server, so my answer is biased.</p>
+
+<ol>
+<li><p>10M rows should easily fit in memory, so any kind of aggregation should be fast, especially if you have a covering index. If it doesn't, the server configuration may need adjustment. Also, SQL Server has so-called <a href="https://msdn.microsoft.com/en-us/library/dn133186.aspx" rel="noreferrer">in-memory tables</a>, which may be a good fit here.</p></li>
+<li><p>SQL Server has a feature called <a href="https://msdn.microsoft.com/en-AU/library/ms191432.aspx" rel="noreferrer">indexed view</a>. Your aggregating query is a classic use case of an indexed view. Indexed view is essentially a copy of the data stored on disk and maintained by the server automatically as the underlying data in the table changes. It slows INSERTS, DELETES and UPDATES, but makes SELECT fast, because summary is always pre-calculated. See: <a href="https://www.brentozar.com/archive/2013/11/what-you-can-and-cant-do-with-indexed-views/" rel="noreferrer">What You Can (and Can’t) Do With Indexed Views</a>. Other DBMSes should have similar features.</p></li>
+</ol>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42800577" title="short permalink to this answer" class="short-link" id="link-post-42800577">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42800577/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-15 03:26:45Z" class="relativetime">Mar 15 at 3:26</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4116017/vladimir-baranov"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/HuK9Y.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4116017/vladimir-baranov">Vladimir Baranov</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 15,813" dir="ltr">15.8k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="18 silver badges"><span class="badge2"></span><span class="badgecount">18</span></span><span title="46 bronze badges"><span class="badge3"></span><span class="badgecount">46</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42800577" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72891005" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">we benchmarked SQLServer on six of our application queries and it looked good on about 1M rows and under. After that, 5 of the 6 queries probably exceeded our available memory and were quite slow. I think SQLServer would be an option at ~1M rows or under but on more complex queries it quickly exceeds the machine memory (even if we get a larger machine).</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72891005_42800577"><span title="2017-03-20 02:48:43Z" class="relativetime-clean">Mar 20 at 2:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72891600" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@David542, 10M rows with 100 bytes per row is 1GB. It is not trivially small, but not too large either. You may need to look at the execution plan and check what the server is doing. If you use Indexed View, you should be able to greatly reduce the amount of data the server needs to read/keep in memory (depending on your data). If original full table has 10M rows, but there are only, say, 10K distinct combinations of <code>studio, territory</code>, then indexed view's index will have only 10K rows =&gt; your query with indexed view would be very fast.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4116017/vladimir-baranov" title="15,813 reputation" class="comment-user">Vladimir Baranov</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72891600_42800577"><span title="2017-03-20 03:32:38Z" class="relativetime-clean">Mar 20 at 3:32</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72891810" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@David542, on the other hand, if the full table has 10M rows and there are 9M distinct combinations of <code>studio, territory</code>, then indexed view would not help much. A simple index on <code>(studio, territory)</code> would have almost the same effect.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4116017/vladimir-baranov" title="15,813 reputation" class="comment-user">Vladimir Baranov</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72891810_42800577"><span title="2017-03-20 03:48:32Z" class="relativetime-clean">Mar 20 at 3:48</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42800577" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42729834"></a>
+<div id="answer-42729834" class="answer" data-answerid="42729834" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42729834">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you don't need concurrency, multiple users connecting simultaneously, and your data can fit in a single disk file, then SQLite might be appropriate.</p>
+
+<p>As they say, SQLite does not compete with client/server databases. SQLite competes with fopen().</p>
+
+<p><a href="http://www.sqlite.org/whentouse.html" rel="nofollow noreferrer">http://www.sqlite.org/whentouse.html</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42729834" title="short permalink to this answer" class="short-link" id="link-post-42729834">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42729834/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-11 00:19:02Z" class="relativetime">Mar 11 at 0:19</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6288114/jim-brody"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/photo.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6288114/jim-brody">Jim Brody</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">11</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42729834" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72596291" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">we'd need concurrency on this one. I think Impala might be the fastest option, but seems a bit overkill for data &lt; 10M rows?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72596291_42729834"><span title="2017-03-11 18:49:25Z" class="relativetime-clean">Mar 11 at 18:49</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42729834" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42742662"></a>
+<div id="answer-42742662" class="answer" data-answerid="42742662" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42742662">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I think Microsoft SQL Server Analysis Services is a good option, I used myself, it is  database behind  the PowerBI service,which has a very good free tier option.</p>
+
+<p>if you want a free on premise solution, you can always use SQL Server express with the new columnstore technology, i did not use it myself, but i heard some very good results</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42742662" title="short permalink to this answer" class="short-link" id="link-post-42742662">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42742662/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-12 01:24:55Z" class="relativetime">Mar 12 at 1:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1956701/mim"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/d40994489a0e13b5c6e96dd456612583" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1956701/mim">Mim</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">50</span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42742662" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42742662" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42825870"></a>
+<div id="answer-42825870" class="answer" data-answerid="42825870" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42825870">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If that is your only query, then this will make it run faster:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="kwd">INDEX</span><span class="pun">(</span><span class="pln">studio</span><span class="pun">,</span><span class="pln"> territory</span><span class="pun">)</span><span class="pln">  </span><span class="com">-- in either order.</span></code></pre>
+
+<p>If there are other variations, let's see them, plus <code>SHOW CREATE TABLE</code>.</p>
+
+<p>Another thing to check:  How much RAM do you have, ans what is the value of <code>innodb_buffer_pool_size</code>?  That setting should be about 70% of RAM (if you have more than 4GB of ram).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42825870" title="short permalink to this answer" class="short-link" id="link-post-42825870">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42825870/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2017-03-16 05:20:27Z" class="relativetime">Mar 16 at 5:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1766831/rick-james"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/1ee974306d2def46eb69534fbcf95cc5" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1766831/rick-james">Rick James</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 31,671" dir="ltr">31.7k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="21 silver badges"><span class="badge2"></span><span class="badgecount">21</span></span><span title="63 bronze badges"><span class="badge3"></span><span class="badgecount">63</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42825870" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72892243" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">thanks, the above is more a sample query, so we wouldn't necessarily know the index-combinations to use.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/651174/david542" title="22,173 reputation" class="comment-user owner">David542</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72892243_42825870"><span title="2017-03-20 04:21:33Z" class="relativetime-clean">Mar 20 at 4:21</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72920016" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Need to see the breadth of the problem to provide a complete solution.  Sounds link an "EAV" problem -- which is messy.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1766831/rick-james" title="31,671 reputation" class="comment-user">Rick James</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72920016_42825870"><span title="2017-03-20 17:43:07Z" class="relativetime-clean">Mar 20 at 17:43</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42825870" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42905469"></a>
+<div id="answer-42905469" class="answer" data-answerid="42905469" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42905469">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Do not use <code>COUNT(*)</code>.</p>
+
+<p>Use <code>COUNT()</code> on a single column, preferably an indexed one like the <code>PRIMARY KEY</code>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42905469" title="short permalink to this answer" class="short-link" id="link-post-42905469">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42905469/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-20 13:55:00Z" class="relativetime">Mar 20 at 13:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4899193/usagi-miyamoto"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/photo(1).jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4899193/usagi-miyamoto">Usagi Miyamoto</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">121</span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42905469" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-72925574" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy"><code>COUNT(*)</code> counts rows and gives the Optimizer the flexibility to pick which index to use  <code>COUNT(x)</code> checks each <code>x</code> for being <code>NOT NULL</code>, which is usually not desired.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1766831/rick-james" title="31,671 reputation" class="comment-user">Rick James</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72925574_42905469"><span title="2017-03-20 20:20:12Z" class="relativetime-clean">Mar 20 at 20:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72943645" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy"><code>COUNT(*)</code> means count all rows that are not full of <code>NULL</code> values. Many implementations use full table scans to do this.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4899193/usagi-miyamoto" title="121 reputation" class="comment-user">Usagi Miyamoto</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72943645_42905469"><span title="2017-03-21 09:31:32Z" class="relativetime-clean">Mar 21 at 9:31</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-72970709" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I strongly believe that you are wrong about <code>COUNT(*)</code> needing to look at all the columns.  And I tried a simple table with all columns being NULLable; COUNT(*) included rows with all nulls.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1766831/rick-james" title="31,671 reputation" class="comment-user">Rick James</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#comment72970709_42905469"><span title="2017-03-21 19:52:00Z" class="relativetime-clean">Mar 21 at 19:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42905469" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42914229"></a>
+<div id="answer-42914229" class="answer" data-answerid="42914229" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42914229">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>My Answer: Optimize query and table structure as previously addressed (1 sec or less).  Read on below for further reasoning, because we all fall into this trap. Note: The above is not necessarily a big dataset.</p>
+
+<p>A great question. It is such a struggle to decipher what is the problem and what is a solution.  Here's a shot coming from old school.  In the old days, we use to say you ask a hardware, OS, or developer what the problem/solution is and you will get three different answers.</p>
+
+<p>My understanding is this question is asking to solve/compare a SQL performance problem with a cloud infrastructure solution.  This question will have many different answers based on background. It is confusing, you have just old school database installations(Mysql, Oracle, MSsql), Database As A Service(DBAAS), Big Data Cloud solutions, Big Data Application Solutions(hadoop)</p>
+
+<p>It is so easy to get tangled up in all this technology. Maybe here is a little clarity.</p>
+
+<p>SQL performance problems can be solved in a variety of points of performance(POP) .    </p>
+
+<ol>
+<li>SQL Optimization and Tuning (Temp tables, In-Memory, OLAP functions, Sql Plan, Parallelization, analytics ) Tools (MySql Workbench, cmdline, Toad, etc)</li>
+<li>Structure Optimization (Tables, Indexing, Partitioning, Pre-Ag Structures)</li>
+<li>Database configuration (Memory Size, Cache sizes, Parallelization, Block Size, etc..</li>
+<li>OS memory, page size, Processes)</li>
+<li>Hardware and Network - Mostly irrellivant now.</li>
+<li>Server Provisioning.</li>
+<li>Cloud provisioning and clustering.</li>
+<li>Infrastructure and Software decisions.</li>
+</ol>
+
+<p>Bottom Line: I will stop here, we have so many solutions for problems. Try to start with the most basic usage of a technology before incurring costs solving solutions with bigger technologies.  Hopefully this will give the user a skeleton of a path to work through or terminology to use when asking a question.  How do I get x query to run in time t?</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42914229" title="short permalink to this answer" class="short-link" id="link-post-42914229">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42914229/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/42914229/revisions" title="show all edits to this post">edited <span title="2017-03-20 22:34:18Z" class="relativetime">Mar 20 at 22:34</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-20 21:23:11Z" class="relativetime">Mar 20 at 21:23</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/7400016/wesley-davidson"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/bca79a1461e095de3d4d74af47afaec5" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/7400016/wesley-davidson">Wesley Davidson</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">11</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42914229" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42914229" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42929469"></a>
+<div id="answer-42929469" class="answer" data-answerid="42929469" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42929469">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You don't talk much about the problem space you're in - but have you considered python pandas, or R? These are great tools for data analytics / development.</p>
+
+<p>Assuming you have python and pandas handy <code>pip install pandas</code> you can get started with something like this:</p>
+
+<pre class="lang-sql prettyprint prettyprinted"><code><span class="pln">import pandas </span><span class="kwd">as</span><span class="pln"> pd
+import pyodbc
+
+conn </span><span class="pun">=</span><span class="pln"> pyodbc</span><span class="pun">.</span><span class="kwd">connect</span><span class="pun">(...)</span><span class="pln"> </span><span class="pun">#</span><span class="pln"> You</span><span class="str">'ll need to figure out the settings for your DB here
+# this slow but only needs to be done once:
+data = pd.read_sql_query('</span><span class="kwd">select</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> mytable</span><span class="str">') # Load everything into memory 
+
+# Now do the query:
+data.groupby(['</span><span class="pln">studio</span><span class="str">', '</span><span class="pln">territory</span><span class="str">'</span><span class="pun">]).</span><span class="pln">count</span><span class="pun">().</span><span class="pln">sort_values</span><span class="pun">(</span><span class="pln">ascending</span><span class="pun">=</span><span class="pln">False</span><span class="pun">)</span></code></pre>
+
+<p>I strongly recommend trying out pandas with <a href="https://jupyter.org/" rel="nofollow noreferrer">Jupyter Notebooks</a> </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42929469" title="short permalink to this answer" class="short-link" id="link-post-42929469">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42929469/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-21 14:07:21Z" class="relativetime">Mar 21 at 14:07</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/5209935/matthew"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/56edd0055b64fd1531257632ad2ef614" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/5209935/matthew">Matthew</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,062</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42929469" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42929469" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="42791067"></a>
+<div id="answer-42791067" class="answer" data-answerid="42791067" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42791067">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>BigQuery is meant to perform best at the end of the Big Data pipeline. It has been designed so as to perform well with large data sets, not small ones, and is not meant as a replacement for existing technologies, but rather as an excellent complement in certain situations. An example can be read in the “Google Cloud Big Data and Machine Learning Blog” <a href="https://cloud.google.com/blog/big-data/2016/05/bigquery-and-dataproc-shine-in-independent-big-data-platform-comparison" rel="nofollow noreferrer">document</a>.  </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/42791067" title="short permalink to this answer" class="short-link" id="link-post-42791067">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/42791067/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-14 16:12:19Z" class="relativetime">Mar 14 at 16:12</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6938128/george"><div class="gravatar-wrapper-32"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/7fcdfa61a165fe77418b79dc6eb5efb0" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6938128/george">George</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">149</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42791067" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42791067" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/42729526/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="42729526">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="http://stackoverflow.com/?tab=month">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="f8d5511672d0568eb1b54e4b54c273aa">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f42729526%2falternative-to-bigquery-for-medium-sized-data%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f42729526%2falternative-to-bigquery-for-medium-sized-data%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/mysql" class="post-tag" title="show questions tagged &#39;mysql&#39;" rel="tag">mysql</a> <a href="http://stackoverflow.com/questions/tagged/sql" class="post-tag" title="show questions tagged &#39;sql&#39;" rel="tag">sql</a> <a href="http://stackoverflow.com/questions/tagged/google-bigquery" class="post-tag" title="show questions tagged &#39;google-bigquery&#39;" rel="tag"><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/2NOCA.png" height="16" width="18" alt="" class="sponsor-tag-img">google-bigquery</a> <a href="http://stackoverflow.com/questions/tagged/amazon-redshift" class="post-tag" title="show questions tagged &#39;amazon-redshift&#39;" rel="tag">amazon-redshift</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2017-03-10 23:39:55Z"><b>15 days ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>414 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data?lastactivity" class="lastactivity-link" title="2017-03-21 14:07:21Z">5 days ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1270020624",[5,17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1270020624"><iframe id="ados_frame_adzerk1270020624_2711580" frameborder="0" scrolling="no" height="250" width="300" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/saved_resource(1).html"></iframe><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/42729526/alternative-to-bigquery-for-medium-sized-data#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/i(2).gif"></div>
+            <div id="hireme" class="clc-jobs-multi orange tagged"><a class="top " href="https://stackoverflow.com/jobs" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=41weNlcisuSKB7utYXAoExMDA4MAAwj8YjRj6GHKj9FgYDgBxAwsDCkHCjhSLRkZgRym-dHCTAynJzIz8LAwiB4IC2eyOhEXac_IkpVYlii_UJmJ4f0NZgZGFobcQ95zj1p6rEmxFzJgatZiYGBjFWEsO83IwAukHzuor1O7onaEaQoA&amp;cr=10440&amp;ct=1&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs&amp;sig=T7f9a0vUOk6XvA"><span>Looking for a job?</span></a><div class="middle"><ul class="jobs"><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Machine Learning and Computer Vision Senior Software Engineer at FeatureX. Click to learn more." href="https://stackoverflow.com/jobs/124367/machine-learning-and-computer-vision-senior-featurex" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=41weNlcisuSKB7utYXAoExMDA4MAAwj8YjRj6GHKj9FgYDgBxAwsDCkHCjhSLRkZgRym-dHCTAynJzIz8LAwiB4IC2eyOhEXac_IkpVYlii_UJmJ4f0NZgZGFobcQ95zj1p6rEmxFzJgatZiYGBjFWEsO83IwAukHzuor1O7onaEaQoA&amp;cr=233931&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F124367%2Fmachine-learning-and-computer-vision-senior-featurex&amp;sig=bGd03wNwQv548A"><div class="title">Machine Learning and Computer Vision Senior Software Engineer</div><div><span class="company">FeatureX</span><span class="location">Cambridge, MA</span></div><div class="opts"><span class="opt relocate">Relocation</span></div><span class="post-tag">c++</span><span class="post-tag highlight">java</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=41weNlcisuSKB7utYXAoExMDA4MAAwj8YjRj6GHKj9FgYDgBxAwsDCkHCjhSLRkZgRym-dHCTAynJzIz8LAwiB4IC2eyOhEXac_IkpVYlii_UJmJ4f0NZgZGFobcQ95zj1p6rEmxFzJgatZiYGBjFWEsO83IwAukHzuor1O7onaEaQoA&amp;cr=233931&amp;ct=-1&amp;sig=YIUHS8qpAKYdqA" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li><li class="&quot;clc-dismissable&quot;"><div class="job-wrap"><a class="job" title="Hadoop Big Data Engineer at Meridian Health. Click to learn more." href="https://stackoverflow.com/jobs/137706/hadoop-big-data-engineer-meridian-health" target="_blank" data-clc-click="https://clc.stackoverflow.com/click?an=41weNlcisuSKB7utYXAoExMDA4MAAwj8YjRj6GHKj9FgYDgBxAwsDCkHCjhSLRkZgRym-dHCTAynJzIz8LAwiB4IC2eyOhEXac_IkpVYlii_UJmJ4f0NZgZGFobcQ95zj1p6rEmxFzJgatZiYGBjFWEsO83IwAukHzuor1O7onaEaQoA&amp;cr=252143&amp;ct=0&amp;url=https%3A%2F%2Fstackoverflow.com%2Fjobs%2F137706%2Fhadoop-big-data-engineer-meridian-health&amp;sig=-nER-fxCOp2eTg"><div class="title">Hadoop Big Data Engineer</div><div><span class="company">Meridian Health</span><span class="location">Detroit, MI</span></div><span class="post-tag">hadoop</span><span class="post-tag">bigdata</span></a></div><a class="clc-dismiss" data-clc-click="https://clc.stackoverflow.com/click?an=41weNlcisuSKB7utYXAoExMDA4MAAwj8YjRj6GHKj9FgYDgBxAwsDCkHCjhSLRkZgRym-dHCTAynJzIz8LAwiB4IC2eyOhEXac_IkpVYlii_UJmJ4f0NZgZGFobcQ95zj1p6rEmxFzJgatZiYGBjFWEsO83IwAukHzuor1O7onaEaQoA&amp;cr=252143&amp;ct=-1&amp;sig=Qe_9dblW32OcZg" data-clc-meta-target="-1"><span class="clc-tooltip above-left">dismiss this job</span></a></li></ul></div><img src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/impression.gif" class="impression" style="display: none;"></div>
+        <script>
+window.clc_request = 'Av0ugRdZdNQIAAAAADYAjAICAAAAAgAAAAArAAAAfG15c3FsfHNxbHxnb29nbGUtYmlncXVlcnl8YW1hem9uLXJlZHNoaWZ0fAAFRR-22Mnmqknh';
+;(function(n){var t,u,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(n.allowed[0]!=="*"&&n.allowed.indexOf(location.hostname)===-1)return;if(t=window,t.clc=t.clc||{},u=t.clc_request||t.clcfl_request,t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return n.load()}),t.clc.options){for(r in t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(f){console.error("[clc] Error in loader:",f)}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","blog.codinghorror.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"https://clc.stackoverflow.com/markup.js","lib":"https://cdn.sstatic.net/clc/clc.min.js?v=cb3ebf1d3162"});        </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/42429093?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/42429093/why-doesnt-bigquery-perform-as-well-on-small-data-sets?noredirect=1&amp;lq=1" class="question-hyperlink">Why doesn't BigQuery perform as well on small data sets</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/20063494?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/20063494/how-to-group-a-range-of-data-to-make-a-category-in-google-bigquery?rq=1" class="question-hyperlink">How to group a range of data to make a category in GOOGLE BigQuery</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/22557296?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="http://stackoverflow.com/questions/22557296/comparing-substrings-in-google-bigquery?rq=1" class="question-hyperlink">Comparing substrings in Google BigQuery</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/26340587?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">15</div></a><a href="http://stackoverflow.com/questions/26340587/pros-cons-of-bigquery-vs-amazon-redshift?rq=1" class="question-hyperlink">Pros &amp; cons of BigQuery vs. Amazon Redshift</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/39394111?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/39394111/dynamically-creating-columns-from-row-data-using-select-in-bigquery?rq=1" class="question-hyperlink">Dynamically creating columns from row data using Select in Bigquery</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/39656425?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="http://stackoverflow.com/questions/39656425/migrating-data-over-to-bigquery-from-redshift?rq=1" class="question-hyperlink">Migrating data over to BigQuery from Redshift</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/39841678?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/39841678/google-bigquery-or-amazon-redshift-with-custom-score-function?rq=1" class="question-hyperlink">google-bigquery or amazon-redshift with custom score function</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40227820?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/40227820/are-the-bigquery-quotas-per-query-or-per-row-changed?rq=1" class="question-hyperlink">Are the BigQuery quotas per query or per row changed?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40415437?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/40415437/how-to-insert-record-data-type-of-goolgle-bigquery-in-redshift?rq=1" class="question-hyperlink">how to insert Record Data type of goolgle bigquery in redshift?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40501692?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="http://stackoverflow.com/questions/40501692/process-large-amount-of-data-from-bigquery?rq=1" class="question-hyperlink">Process large amount of data from BigQuery</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/42429093?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/42429093/why-doesnt-bigquery-perform-as-well-on-small-data-sets?rq=1" class="question-hyperlink">Why doesn't BigQuery perform as well on small data sets</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/75001/how-do-i-keep-my-slaves-happy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I keep my slaves happy?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/20829/uk-schoolboy-corrects-nasa-data-error-what-precisely-was-the-error" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "UK schoolboy corrects Nasa data error" - what precisely was the "error"?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/86953/can-i-learn-the-course-material-for-the-first-time-while-im-teaching-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I learn the course material for the first time while I'm teaching it?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/123615/how-many-psychologists-does-it-take-to-change-a-light-bulb" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "How many psychologists does it take to change a light bulb?"
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/353828/excluding-the-last-argument-parameter-from-a-for-loop" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Excluding the last argument/parameter from a for loop
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/77565/for-very-high-net-worth-individuals-does-it-make-sense-to-not-have-insurance" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    For very high-net worth individuals, does it make sense to not have insurance?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/90413/what-can-i-do-if-im-seated-next-to-a-person-with-bad-hygiene-on-an-airplane" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What can I do if I'm seated next to a person with bad hygiene on an airplane?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-retrocomputing" title="Retrocomputing Stack Exchange"></div><a href="http://retrocomputing.stackexchange.com/questions/2513/did-apple-not-originally-allow-anyone-to-develop-software-for-the-macintosh" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:648 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did Apple not originally allow anyone to develop software for the Macintosh?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/75285/do-gryphons-need-bird-tails" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do gryphons need bird tails?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/106050/is-unicode-pile-of-poo-considered-nsfw" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is 💩 (Unicode 'pile of poo') considered NSFW?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="http://cooking.stackexchange.com/questions/79346/why-didnt-microwaving-a-stainless-steel-spoon-set-my-kitchen-on-fire" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why didn't microwaving a stainless steel spoon set my kitchen on fire?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/379977/what-is-a-technical-word-for-an-event-causing-conflict-to-escalate-to-war" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is a technical word for an event causing conflict to escalate to war?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/2202251/why-is-this-seemingly-valid-argument-using-modus-tollens-not-valid-how-is-this" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is this seemingly valid argument using modus tollens not valid? How is this an example of "begging the question"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/294835/linear-voltage-regulator-outputs-3-6-volt-instead-of-5-0-volt" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Linear voltage regulator outputs 3.6 volt instead of 5.0 volt
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-biology" title="Biology Stack Exchange"></div><a href="http://biology.stackexchange.com/questions/57674/is-c-elegans-always-observed-with-precisely-302-neurons-are-there-ever-individ" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:375 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is C. elegans always observed with precisely 302 neurons? Are there ever individual viable exceptions?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/265595/the-m%c3%b6bius-number-of-the-nonabelian-finite-simple-groups" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The Möbius number of the nonabelian finite simple groups
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/86918/is-it-bad-to-cite-people-without-putting-the-appropriate-diacritics-in-their-nam" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it bad to cite people without putting the appropriate diacritics in their names?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-astronomy" title="Astronomy Stack Exchange"></div><a href="http://astronomy.stackexchange.com/questions/20466/why-dont-astronomers-use-meters-to-measure-astronomical-distances" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:514 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't astronomers use meters to measure astronomical distances?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/166054/in-apex-is-it-possible-to-use-polymorphism-and-overloading-to-mitigate-the-need" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In Apex, is it possible to use Polymorphism and Overloading to mitigate the need for conditional logic?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/113674/sum-the-numbers-on-standard-in" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Sum the numbers on standard in
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/87683/interview-rescheduled-by-employer-two-hours-before-the-meeting" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Interview rescheduled by employer two hours before the meeting
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/265590/symmetric-models-and-hod" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    symmetric models and HOD
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-economics" title="Economics Stack Exchange"></div><a href="http://economics.stackexchange.com/questions/15840/a-law-against-selling-any-house-cheaper-than-it-was-bought-for-what-consequence" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:591 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A law against selling any house cheaper than it was bought for, what consequences would that have?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/77759/getting-a-free-meal-of-dividend" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Getting a free meal of dividend
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/42729526" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/42729526/ivc/07fe');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/42729526/ivc/07fe" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-sql</div></div>
+
+
+        </div>
+    </div><script async="" src="./mysql - Alternative to BigQuery for medium-sized data - Stack Overflow_files/clc.min.js.下载"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="http://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.3.24.25527
+            </div>
+                </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+                ados_setKeywords('mysql,sql,google-bigquery,amazon-redshift');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|mysql|sql|google-bigquery|amazon-redshift|');
+                ga('pageData.set', 'dimension2', '|mysql|sql|google-bigquery|amazon-redshift|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+</body></html>

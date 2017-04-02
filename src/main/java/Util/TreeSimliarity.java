@@ -25,7 +25,7 @@ public class TreeSimliarity {
     }
 
     public  void FindSimilarChildren(Elements divSets) {
-        System.out.println("looping");
+//        System.out.println("looping");
         if(divSets.size()==0){
             return ;
         }
@@ -51,7 +51,7 @@ public class TreeSimliarity {
                 if(compareNodeSecond.select("div").size()<5){
                     continue;
                 }
-                if(doNodeSimilarity(compareNode,compareNodeSecond)){
+                if(doNodeSimilarity2(compareNode,compareNodeSecond)){
                     repeatNodeCounter++;
                 }
             }
@@ -70,31 +70,31 @@ public class TreeSimliarity {
     核心算法1.0版， 只是比较当前目标节点下一层所有child 的tag的余弦相似度.
     如果是多层嵌套 div 则会有问题
      */
-//    private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
-//
-//
-//        StringBuffer TAGoneBuffer = new StringBuffer(),TAGtwoBuffer = new StringBuffer();
-//        for(Element firstChild:compareNode.children()){
-//            TAGoneBuffer.append(firstChild.tagName()+"");
-//        }
-//        for(Element secChild:compareNodeSecond.children()){
-//            TAGtwoBuffer.append(secChild.tagName()+"");
-//        }
-//        Cosine_Similarity cs1 = new Cosine_Similarity();
-//        double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
-//        if(sim_score>0.9){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//
-//    }
+    private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
+
+
+        StringBuffer TAGoneBuffer = new StringBuffer(),TAGtwoBuffer = new StringBuffer();
+        for(Element firstChild:compareNode.children()){
+            TAGoneBuffer.append(firstChild.tagName()+"");
+        }
+        for(Element secChild:compareNodeSecond.children()){
+            TAGtwoBuffer.append(secChild.tagName()+"");
+        }
+        Cosine_Similarity cs1 = new Cosine_Similarity();
+        double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
+        if(sim_score>0.9){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
     /*
     核心算法2.0 在1.0的基础之上增加了必须node含有的children数量相似，含有的div相似
     但是会有问题，也就是例如知乎这种情况 有些会多一个div 的情况
     todo
      */
-    private  boolean doNodeSimilarity(Element compareNode, Element compareNodeSecond) {
+    private  boolean doNodeSimilarity2(Element compareNode, Element compareNodeSecond) {
 
 
         int containChildNodeA=0,containChildNodeB=0,containDivNumberA=0,containDivNumberB=0;
@@ -113,7 +113,9 @@ public class TreeSimliarity {
         }
         Cosine_Similarity cs1 = new Cosine_Similarity();
         double sim_score = cs1.Cosine_Similarity_Score(TAGoneBuffer.toString(),TAGtwoBuffer.toString());
-        if(sim_score>0.9&&containDivNumberA==containDivNumberB&&containChildNodeA==containChildNodeB){
+        //对于知乎 quora这样的 divcontent 大于10是一个很好的限定条件
+        if(sim_score>0.9&&containDivNumberA==containDivNumberB&&containChildNodeA==containChildNodeB&&containDivNumberA>=10){
+//        if(sim_score>0.9&&containDivNumberA==containDivNumberB&&containChildNodeA==containChildNodeB){
             return true;
         }else {
             return false;
