@@ -25,9 +25,9 @@ public class Enterance {
 
     public static void  main(String[] args){
 
-        String targetFolderPath="src/main/res/rawHtml/zhihu";
+        String targetFolderPath="src/main/res/grabbedAnswer/zhihu";
         //todo 要加一行代码，这样不用手动创建ldaCorpus
-        String corpusFolderPath = "src/main/res/rawHtml/zhihu/ldaCorpus";
+        String corpusFolderPath = "src/main/res/grabbedAnswer/zhihu/ldaCorpus";
 
         File folder = new File(targetFolderPath);
         File[] listOfFiles = folder.listFiles();

@@ -88,7 +88,9 @@ public class TestCorpus extends TestCase
         LdaUtil.explain(topic);
     }
     public void testZhihuAll() throws Exception{
-        Corpus corpus = Corpus.load("C:\\Users\\yamengwenjing\\Desktop\\wenjingWork\\interviewAlgorithm\\wenjingThesis\\src\\main\\res\\rawHtml\\zhihu\\ldaCorpus\\4.html");
+        String targetFolder = "C:\\Users\\yamengwenjing\\Desktop\\wenjingWork\\interviewAlgorithm\\wenjingThesis\\src\\main\\res\\grabbedAnswer\\zhihu\\ldaCorpus\\3.html";
+
+        Corpus corpus = Corpus.load(targetFolder);
         LdaGibbsSampler ldaGibbsSampler = new LdaGibbsSampler(corpus.getDocument(), corpus.getVocabularySize());
         ldaGibbsSampler.gibbs(3);
 
@@ -113,18 +115,17 @@ public class TestCorpus extends TestCase
         //todo get raw data files
         ArrayList<document> report = new ArrayList<document>();
         try {
-        DocumentOp document = new DocumentOp("C:\\Users\\yamengwenjing\\Desktop\\wenjingWork\\interviewAlgorithm\\wenjingThesis\\src\\main\\res\\rawHtml\\zhihu\\ldaCorpus\\4.htmlraw");
-
+        DocumentOp document = new DocumentOp(targetFolder+"raw");
         Double biggestDouble;
         int biggest;
         for(int i=0;i<theta.length;i++){
-            System.out.println("document "+(i+1)+"");
+//            System.out.println("document "+(i+1)+"");
 
             biggestDouble = theta[i][0];
             biggest = 0;
             for(int j = 0 ; j< theta[i].length;j++){
-                System.out.print(theta[i][j]+" ");
-                System.out.println(" ");
+//                System.out.print(theta[i][j]+" ");
+//                System.out.println(" ");
                 if(biggestDouble<theta[i][j]){
                     biggestDouble = theta[i][j];
                     biggest = j;
@@ -132,8 +133,8 @@ public class TestCorpus extends TestCase
             }
             document.getDocumentList().get(i).setCategory(biggest);
             report = document.getDocumentList();
-            System.out.println("category is "+(biggest+1));
-            System.out.println(" ");
+//            System.out.println("category is "+(biggest+1));
+//            System.out.println(" ");
         }
         }catch (Exception e){
         e.printStackTrace();
