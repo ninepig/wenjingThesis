@@ -1,16 +1,15 @@
 package Enterance;
 
-import Util.TreeSimliarity;
 import cn.edu.hfut.dmic.contentextractor.ContentExtractor;
 import com.hankcs.hanlp.seg.common.Term;
 import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.util.Arrays;
+
+import static Util.FileOperation.readHtmlFromFile;
+import static pageHandle.HtmlHandling.getTargetElementList;
 
 /**
  * Created by yamengwenjing on 2017-03-31.
@@ -70,7 +69,7 @@ public class Enterance {
         }
 
     }
-    //todo 分词 停用词
+
     private static String textHandling(String content) {
         StringBuffer result = new StringBuffer();
         for(Term term : NotionalTokenizer.segment(content)){
@@ -91,44 +90,7 @@ public class Enterance {
         }
     }
 
-    public static String readHtmlFromFile(String fileName){
-        StringBuilder contentBuilder = new StringBuilder();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(fileName));
-            String str;
 
-            while ((str = in.readLine()) != null) {
-                contentBuilder.append(str);
-//                stringHelper(str);
-            }
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String content = contentBuilder.toString();
-        return content;
-    }
 
-    public static Elements getTargetElementList(String sourcingInput){
-        Document doc = Jsoup.parse(sourcingInput);
-        Element bodyNode = doc.body();
-        Elements divSets = bodyNode.select("div");
-        Element biggest = divSets.first();
-        int biggestNumber = 0;
 
-        for(Element divElment:divSets){
-            if(divElment.select("div").size()>biggestNumber ){
-                biggest = divElment;
-                biggestNumber=divElment.select("div").size();
-            }
-        }
-        Elements biggestDiv = biggest.children();
-//        stringHelper("biggestDivChildren"+biggestDiv.size());
-        Elements resultElements = new Elements();
-        TreeSimliarity tool = new TreeSimliarity(biggestDiv);
-        tool.start();
-        resultElements = tool.getResultElements();
-
-        return  resultElements;
-    }
 }

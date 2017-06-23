@@ -6,9 +6,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import static Util.FileOperation.readHtmlFromFile;
 
 /**
  * Created by yamengwenjing on 2017-03-03.
@@ -95,23 +93,7 @@ public class quoraMain {
      */
 
 
-    public static String readHtmlFromFile(String fileName){
-        StringBuilder contentBuilder = new StringBuilder();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(fileName));
-            String str;
 
-            while ((str = in.readLine()) != null) {
-                contentBuilder.append(str);
-//                stringHelper(str);
-            }
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String content = contentBuilder.toString();
-        return content;
-    }
 
     public static  void stringHelper(String output){
         System.out.println(output);

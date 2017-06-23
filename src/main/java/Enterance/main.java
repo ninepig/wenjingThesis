@@ -1,6 +1,5 @@
 package Enterance;
 
-import Util.Cosine_Similarity;
 import Util.TreeSimliarity;
 import cn.edu.hfut.dmic.contentextractor.ContentExtractor;
 import cn.edu.hfut.dmic.contentextractor.News;
@@ -9,11 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import javax.swing.text.html.HTML;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import static Util.FileOperation.readHtmlFromFile;
 
 /**
  * Created by yamengwenjing on 2017-02-24.
@@ -239,23 +234,7 @@ public class main {
      */
 
 
-    public static String readHtmlFromFile(String fileName){
-        StringBuilder contentBuilder = new StringBuilder();
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(fileName));
-            String str;
 
-            while ((str = in.readLine()) != null) {
-                contentBuilder.append(str);
-//                stringHelper(str);
-            }
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String content = contentBuilder.toString();
-        return content;
-    }
 
     public static  void stringHelper(String output){
         System.out.println(output);

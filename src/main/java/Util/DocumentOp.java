@@ -2,7 +2,9 @@ package Util;
 
 import Entity.document;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,6 +14,10 @@ import java.util.ArrayList;
  * Created by yamengwenjing on 2017-04-02.
  */
 public class DocumentOp {
+    /**
+     *
+     * @return 把文件夹中所有的文件读入一个String的list之中
+     */
     public ArrayList<document> getDocumentList() {
         return documentList;
     }
@@ -35,6 +41,7 @@ public class DocumentOp {
             }
         }
     }
+
 
 
 }

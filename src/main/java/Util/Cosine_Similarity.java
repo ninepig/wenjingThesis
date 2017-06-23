@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * Created by yamengwenjing on 2017-03-03.
  */
 public class Cosine_Similarity {
-    public class values
+    public static class values
     {
         int val1;
         int val2;
@@ -22,7 +22,7 @@ public class Cosine_Similarity {
             this.val2=v2;
         }
     }//end of class values
-    public double Cosine_Similarity_Score(String Text1, String Text2)
+    public static double Cosine_Similarity_Score(String Text1, String Text2)
     {
         double sim_score=0.0000000;
         //1. Identify distinct words from both documents
@@ -105,7 +105,7 @@ public class Cosine_Similarity {
         Cosine_Similarity cs1 = new Cosine_Similarity();
 
         System.out.println("[Word # VectorA # VectorB]");
-        double sim_score = cs1.Cosine_Similarity_Score("a span div a meta meta div", "a span div a p p div");
+        double sim_score = cs1.Cosine_Similarity_Score("糖尿病 谣言 胰岛素 早期 中医 骗子 利益", "糖尿病 胰岛素 中医 医院 食物 II 早期");
         System.out.println("Cosine similarity score = "+sim_score);
     }
 }

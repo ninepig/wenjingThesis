@@ -1,14 +1,14 @@
 package Enterance;
 
-import com.hankcs.hanlp.dictionary.stopword.CoreStopWordDictionary;
-import com.hankcs.hanlp.dictionary.stopword.Filter;
-import com.hankcs.hanlp.seg.common.Term;
-import com.hankcs.hanlp.tokenizer.BasicTokenizer;
-import com.hankcs.hanlp.tokenizer.NotionalTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import java.util.List;
-
-import static com.hankcs.hanlp.corpus.tag.Nature.nz;
+import static Util.DocumentAux.getSummaryFromWSsummary;
+import static Util.DocumentAux.getTextRankKeywords;
+import static Util.FileOperation.fileToString;
+import static Util.FileOperation.fileToWordList;
+import static Util.StringOperation.textHandlingList;
+import static Util.StringOperation.zhihufilter;
 
 /**
  * Created by yamengwenjing on 2017-04-01.
@@ -16,41 +16,28 @@ import static com.hankcs.hanlp.corpus.tag.Nature.nz;
 public class testHanNlp {
 
     public static  void main(String[] args){
-        String text = "这是一个伸手不见五指的黑夜。我叫孙悟空，我爱北京，我爱Python和C++";
-        StringBuffer result = new StringBuffer();
-        // 可以动态修改停用词词典
-//        CoreStopWordDictionary.add("居民");
-        System.out.println(NotionalTokenizer.segment(text));
 
-        for(Term term :NotionalTokenizer.segment(text)){
+//        //1 测试普通分词
+//
+//        for (String a:
+//        textHandlingList("糖尿病人在怎样的情况下适宜开始长期注射胰岛素？ ")) {
+//            System.out.println(a);
+//        }
+//        //2 测试text rank
+//        System.out.println("#####");
+//        for (String a:
+//                getTextRankKeywords("糖尿病人在怎样的情况下适宜开始长期注射胰岛素？ ",10)) {
+//            System.out.println(a);
+//        }
+//        String testZhihuFilter = "可以啊，王林都行 发布于 2017-02-20 0 添加评论 分享 收藏 感谢";
+//        System.out.println(zhihufilter(testZhihuFilter));
 
-//            System.out.println(term.word);
-            result.append(term.word+" ");
-        }
-        System.out.println(result.toString());
+//        System.out.println(getTextRankKeywords("糖尿病人在怎样的情况下适宜开始长期注射胰岛素？ ",5).toString());
 
-//        CoreStopWordDictionary.remove("居民");
-//        System.out.println(NotionalTokenizer.segment(text));
-//        // 可以对任意分词器的结果执行过滤
-//        List<Term> termList = BasicTokenizer.segment(text);
-//        System.out.println(termList);
-//        CoreStopWordDictionary.apply(termList);
-//        System.out.println(termList);
-//        // 还可以自定义过滤逻辑
-//        CoreStopWordDictionary.FILTER = new Filter()
-//        {
-//            @Override
-//            public boolean shouldInclude(Term term)
-//            {
-//                switch (term.nature)
-//                {
-//                    case nz:
-//                        return !CoreStopWordDictionary.contains(term.word);
-//                }
-//                return false;
-//            }
-//        };
-//        System.out.println(NotionalTokenizer.segment(text));
+        String abc ="我就只说一条，近乎致命的谣言：中药治疗糖尿病。揭开这个黑幕，看下面隐藏着什么？ 从多年以前开始，正规医院治疗二型糖尿病的专科医生还很少、当时的糖尿病人也比较少时，依附于各大医院或是独立的糖尿病研究所和诊所，都有很多登上地方或全国主要报纸的以身试药的名医，无一例外的都是自己的独门秘方中药治疗糖尿病效果奇佳。 患者并不都是傻，只是对于这种特殊的、需要根据所吃食物即时用药控制血糖的病所知甚少，所以这类诊所门庭若市、财源广进是有一个重要原因的，那就是——他们的药确实有效。 既然说他们是骗人的，可是药为什么确实有效呢？ 答案很简单，在做成胶囊或药丸的中药里面，添加了西药，最便宜的劣质降糖药；虽然他们的中药卖得很贵。 糖尿病最大的特点就是，比如你喝了一碗粥，那么在15分钟之后就被消化吸收到了血液之中，此时血糖浓度达到了曲线的峰值，就需要胰岛素也要在血液中达到浓度峰值才可以，这两个浓度的曲线匹配的越吻合越好。不同的药物起效时间也不一样，吃不同的食物、不同的主食菜品搭配，消化和吸收的速度差异也非常大，所以特别需要注意合理用药。 而中药的吸收和起效，是不能达到这么快的，与分子动力学的西药相比，作用机理完全不一样。没有任何一种降血糖的中药，能够在十分钟这个尺度上发挥作用；所以，如果单纯的是用中药来治疗的话，餐后血糖根本不可能降得下来。 最关键的问题是，降血糖最主要的决定因素只有一个，就是胰岛素。并且，还要在吃完饭以后，胰岛素在血液中的浓度很快就上来。还需要对刺激胰腺产生胰岛素的浓度有更精确的调控，低了血糖降不下来；高了降太多变成低血糖，轻则头晕，重则休克、脑细胞死亡、有生命危险。 中药呢？迄今为止，有能刺激胰腺产生定量胰岛素的中药吗？没有胰岛素你用什么来降血糖？降不了血糖你治的是哪门子糖尿病？如果有这种中药的话，早就申请专利大卖特卖了，这种减轻全球数亿糖尿病患者病情、将比屠呦呦的青蒿素影响更大、弘扬祖国传统医药的大好事，整个医学界又怎能不知道？让诺和诺德和礼来等公司在全世界赚得盆满钵满，而中药却如此低调？若是说，这种神奇的中药和疗法，仅存在于少有人知的民间高手之中，资源不够也不想出名更不想参与科学进程（传男不传女？），而不能使无数的糖尿病患者早日摆脱病魔；如此低调的话，和不存在有什么区别？就不要说谁谁谁治好了，但大众就是享受不到。宣扬中药治糖尿病的，可以闭嘴了，民间高手的隐忍与中华民族仁义礼智信造福天下苍生的美德背道而驰，谋财害命更是为世人所不容。降糖灵、糖适平、诺和龙、亚莫利等刺激胰腺分泌胰岛素的药物已经发展几代了，目标靶位、作用机理、副作用等都有了很大的变化。例如，缓释、根据血糖浓度自动调节释放量、在肝肾的代谢有了数量级的下降等等一系列重大进展。治疗方法也有了更多选择，刺激胰腺、葡萄糖吸收增敏剂、增强胰腺受体细胞敏感性等多种联合用药方式，根据病情轻重的不同用药剂量差异也很大，不同病程用药方式也不同。 总之，就是根据个体情况，在获得最佳治疗效果的同时，将用药的副作用降到最低。 而这类研究所和诊所的中药，基本上是不会检测每一个患者的具体病情，都一视同仁的开一样的药，不好使了就加量。 为了获取最高利润，这类中药里面是不会添加优质的降糖类药物的，而早期的便宜降糖药，对胰腺的刺激方式简单粗暴，副作用很大，血糖控制效果即不好也不平稳（血糖高几年不致命，但短时降多了造成低血糖后果就会很严重，所以病人口袋里需要常备几颗糖果）；再加上，没有针对性的检查和治疗方案，导致患者的胰腺功能快速下降、内脏器官受损、血糖长期超标，严重透支了患者的身体。如果合理用药，本来可以维持健康状态20年没有问题的患者，可能维持不到10年身体就多处出了问题。 但是，这类研究所和诊所，就这样堂而皇之的存在了几十年，直到现在也没有消失。 当然，不只是这一个领域黑幕重重，参考莆田系，就能了解荒唐的程度。 而个别三甲医院的个别医生，虽然可能会坑你点钱、让你多遭点罪，但还不至于害你的命。 举个例子，有一次到医院看望因外伤手术的朋友，他向我诉苦，这点滴从早上一直打到晚上，手臂和腿都打麻了，实在受不了了。 于是我就要来了长长的开药单据，看着上面的脂肪乳氨基酸和转化糖，这两种比较贵一些的营养补充药，再看看床上能吃能喝、扶着能去卫生间的朋友，忍住骂人的冲动，继续往下看。 等等，这是什么？ 奥美拉唑！！！这是减少胃酸的药物啊！！！？？？ 一个不严重的外伤患者，居然给点上这么久的奥美拉唑了。。。。。（关于这一块详细的情况争论见评论区，奥美拉唑是可以预防应激性溃疡，但是在我去看他的第四天仍然在点，并且是要和脂肪乳、转化糖一直点到第10天的；而术后一到两天已经没有了应激因素）";
+        String result = getSummaryFromWSsummary(abc);
+        System.out.println(result);
+
     }
 
 

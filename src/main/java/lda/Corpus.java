@@ -11,6 +11,8 @@
  */
 package lda;
 
+import dbEntity.Answer;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -99,6 +101,38 @@ public class Corpus
 
         return corpus;
     }
+
+    /**
+     * Load documents from list OF String
+     *wenjing Modified 2017/5/15
+     * @param answers list
+     * @return a corpus
+     * @throws IOException
+     */
+    public static Corpus load( List<Answer> answers)
+    {
+        Corpus corpus = new Corpus();
+
+        for (Answer thisAnswer : answers)
+        {
+
+            List<String> wordList = new LinkedList<String>();
+
+                String[] words = thisAnswer.getSplitWordString().split(" ");
+                for (String word : words)
+                {
+                    if (word.trim().length() < 2) continue;
+                    wordList.add(word);
+                }
+
+            corpus.addDocument(wordList);
+        }
+        if (corpus.getVocabularySize() == 0) return null;
+
+        return corpus;
+    }
+
+
 
     public Vocabulary getVocabulary()
     {

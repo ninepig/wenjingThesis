@@ -18,6 +18,8 @@ import lda.Corpus;
 import lda.LdaGibbsSampler;
 import lda.LdaUtil;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +33,7 @@ import java.util.Map;
  */
 public class TestCorpus extends TestCase
 {
+
 
     public void testMultiArray() throws Exception{
 
@@ -71,24 +74,25 @@ public class TestCorpus extends TestCase
         double[][] theta = ldaGibbsSampler.getTheta();
         System.out.println("多少个文档"+theta.length);
         System.out.println("多少个topic"+theta[0].length);
-        System.out.println("22222");
+
 
 
         // 5. TODO:Predict. I'm not sure whether it works, it is not stable.
-        System.out.println("123123123");
-        int[] document = Corpus.loadDocument("data/mini/军事_510.txt", corpus.getVocabulary());
-        double[] tp = LdaGibbsSampler.inference(phi, document);
-        System.out.println("123123123");
-        for (double number:tp
-             ) {
-            System.out.println("output"+number);
-        }
-        System.out.println("123123123");
-        Map<String, Double> topic = LdaUtil.translate(tp, phi, corpus.getVocabulary(), 10);
-        LdaUtil.explain(topic);
+//        System.out.println("123123123");
+//        int[] document = Corpus.loadDocument("data/mini/军事_510.txt", corpus.getVocabulary());
+//        double[] tp = LdaGibbsSampler.inference(phi, document);
+//        System.out.println("123123123");
+//        for (double number:tp
+//             ) {
+//            System.out.println("output"+number);
+//        }
+//        System.out.println("123123123");
+//        Map<String, Double> topic = LdaUtil.translate(tp, phi, corpus.getVocabulary(), 10);
+//        LdaUtil.explain(topic);
     }
     public void testZhihuAll() throws Exception{
         String targetFolder = "C:\\Users\\yamengwenjing\\Desktop\\wenjingWork\\interviewAlgorithm\\wenjingThesis\\src\\main\\res\\grabbedAnswer\\zhihu\\ldaCorpus\\3.html";
+        String reportFolder = "C:\\Users\\yamengwenjing\\Desktop\\wenjingWork\\interviewAlgorithm\\wenjingThesis\\src\\main\\res\\grabbedAnswer\\zhihu\\ldaCorpus";
 
         Corpus corpus = Corpus.load(targetFolder);
         LdaGibbsSampler ldaGibbsSampler = new LdaGibbsSampler(corpus.getDocument(), corpus.getVocabularySize());
@@ -100,17 +104,17 @@ public class TestCorpus extends TestCase
         LdaUtil.explain(topicMap);
 
         //document--topic
-        System.out.println("document--topic");
+//        System.out.println("document--topic");
         double[][] theta = ldaGibbsSampler.getTheta();
-        System.out.println("document + topic p");
-        for(int i=0;i<theta.length;i++){
-            System.out.println("document "+i+"");
-            for(int j = 0 ; j< theta[i].length;j++){
-                System.out.print(theta[i][j]+" ");
-                System.out.println(" ");
-
-            }
-        }
+//        System.out.println("document + topic p");
+//        for(int i=0;i<theta.length;i++){
+//            System.out.println("document "+i+"");
+//            for(int j = 0 ; j< theta[i].length;j++){
+//                System.out.print(theta[i][j]+" ");
+//                System.out.println(" ");
+//
+//            }
+//        }
 
         //todo get raw data files
         ArrayList<document> report = new ArrayList<document>();
@@ -150,18 +154,30 @@ public class TestCorpus extends TestCase
 //                System.out.println(report.get(i).getContent());
 //                System.out.println(report.get(i).getCategory());
 //                System.out.println("####");
-                    if(report.get(i).getCategory()==j){
-                        sb.append(report.get(i).getContent());
+                if(report.get(i).getCategory()==j){
+                    sb.append(report.get(i).getContent());
                         sb.append("\n###\n");
-                    }
+                }
             }
             reportResult.add(sb.toString());
         }
 
-        for(int i =0;i<reportResult.size();i++){
+        //print dirctly
+            for(int i =0;i<reportResult.size();i++){
             System.out.println(reportResult.get(i));
         }
 
+        //generate report
+//
+//        StringBuffer reportTxt = new StringBuffer();
+//        for(int i =0;i<reportResult.size();i++){
+//            reportTxt.append(reportResult.get(i)+"\n");
+//        }
+//        File newReportTextFile = new File(reportFolder+"\\"+"1report.txt");
+//
+//        FileWriter fw = new FileWriter(newReportTextFile);
+//        fw.write(reportTxt.toString());
+//        fw.close();
 
         System.out.println("end");
 
